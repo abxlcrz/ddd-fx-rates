@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Settle Challenge API
+  description: API for managing FX rates
+  version: 1.0.0
+
+paths:
+  /rates:
+    get:
+      summary: Get all FX rates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rate'
+    post:
+      summary: Create a new FX rate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RateInput'
+      responses:
+        '201':
+          description: FX rate created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+
+components:
+  schemas:
+    RateInput:
+      type: object
+      properties:
+        pair:
+          type: string
+        fee:
+          type: number
+    Rate:
+      type: object
+      properties:
+        pair:
+          type: string
+        originalRate:
+          type: number
+        fee:
+          type: number
+        feeAmount:
+          type: number
+        rateWithMarkupFee:
+          type: number

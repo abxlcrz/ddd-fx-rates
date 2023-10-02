@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "6aa3ec4a-d70e-4c43-b227-91a5845f17a7",
+		"name": "Settle Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9152794"
+	},
+	"item": [
+		{
+			"name": "Fixer",
+			"item": [
+				{
+					"name": "Get last rates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fixerURL}}latest?access_key={{API_KEY}}&base=EUR&symbols=BRL,ARS,USD",
+							"host": [
+								"{{fixerURL}}latest"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{API_KEY}}"
+								},
+								{
+									"key": "base",
+									"value": "EUR"
+								},
+								{
+									"key": "symbols",
+									"value": "BRL,ARS,USD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get all rates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/rates",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create rate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pair\": \"USD-ARS\",\n    \"fee\":4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/rates",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"rates"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "fixerURL",
+			"value": "http://data.fixer.io/api/"
+		},
+		{
+			"key": "API_KEY",
+			"value": "824e753b9d8f1bf170e5adf80e7788e9"
+		}
+	]
+}

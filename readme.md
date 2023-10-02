@@ -17,7 +17,7 @@ This is the Settle Challenge App, a backend API for managing FX rates.
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 - Node.js and npm installed on your development machine.
-- MongoDB installed and running (for database storage).
+- Docker installed on your machine.
 
 ## Getting Started
 
@@ -27,8 +27,8 @@ To get started with this application, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/abxlcrz/settle-challenge.git
-   cd settle-challenge
+   git clone https://github.com/abxlcrz/settle-backend-challenge.git
+   cd settle-backend-challenge
    ```
 2. Install Dependencies:
    ```shell
@@ -37,6 +37,7 @@ To get started with this application, follow these steps:
 
 ## Docker Compose Setup for MongoDB
 For local development and testing, you can set up a MongoDB instance using Docker Compose. Make sure you have Docker and Docker Compose installed on your system.
+Also check if you are in the right path for the docker-compose.yml file.
 Then, execute this 
   ```shell
   docker-compose up -d
